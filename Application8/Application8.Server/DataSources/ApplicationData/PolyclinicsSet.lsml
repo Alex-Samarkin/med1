@@ -178,6 +178,11 @@
         Association="Workplace_Polyclinics1"
         FromEnd="Polyclinics"
         ToEnd="Workplace" />
+      <NavigationProperty
+        Name="ShedulesItemCollection"
+        Association="ShedulesItem_Polyclinics"
+        FromEnd="Polyclinics"
+        ToEnd="ShedulesItem" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -341,6 +346,16 @@
         Name="Polyclinics"
         EntitySet="PolyclinicsSet" />
     </AssociationSet>
+    <AssociationSet
+      Name="ShedulesItem_PolyclinicsSet"
+      Association="ShedulesItem_Polyclinics">
+      <AssociationSetEnd
+        Name="ShedulesItem"
+        EntitySet="ShedulesItemSet" />
+      <AssociationSetEnd
+        Name="Polyclinics"
+        EntitySet="PolyclinicsSet" />
+    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -402,6 +417,27 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="ShedulesItem_PolyclinicsSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="ShedulesItem_PolyclinicsSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ShedulesItem_PolyclinicsSet]/Members[ShedulesItem]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ShedulesItem_Polyclinics" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ShedulesItem_PolyclinicsSet]/Members[Polyclinics]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="Workplace_Polyclinics">
@@ -425,6 +461,22 @@
       Name="Workplace"
       Multiplicity="Many"
       EntityType="Workplace" />
+    <AssociationEnd
+      Name="Polyclinics"
+      Multiplicity="One"
+      EntityType="Polyclinics">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="ShedulesItem_Polyclinics">
+    <AssociationEnd
+      Name="ShedulesItem"
+      Multiplicity="Many"
+      EntityType="ShedulesItem" />
     <AssociationEnd
       Name="Polyclinics"
       Multiplicity="One"

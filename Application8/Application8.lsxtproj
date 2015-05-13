@@ -112,6 +112,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <LightSwitchExtension Include="Extensions\Microsoft.LightSwitch.Cosmopolitan.lspkg">
+      <ExtensionId>Microsoft.LightSwitch.Cosmopolitan</ExtensionId>
+    </LightSwitchExtension>
     <LightSwitchExtension Include="Extensions\Microsoft.LightSwitch.Extensions.lspkg">
       <ExtensionId>Microsoft.LightSwitch.Extensions</ExtensionId>
       <Server>MICROSOFT.LIGHTSWITCH.EXTENSIONS.SERVER</Server>

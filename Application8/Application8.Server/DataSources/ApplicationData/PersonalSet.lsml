@@ -107,6 +107,11 @@
         Association="Workplace_Personal"
         FromEnd="Personal"
         ToEnd="Workplace" />
+      <NavigationProperty
+        Name="ShedulesItemCollection"
+        Association="ShedulesItem_Personal"
+        FromEnd="Personal"
+        ToEnd="ShedulesItem" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -260,6 +265,16 @@
         Name="Personal"
         EntitySet="PersonalSet" />
     </AssociationSet>
+    <AssociationSet
+      Name="ShedulesItem_PersonalSet"
+      Association="ShedulesItem_Personal">
+      <AssociationSetEnd
+        Name="ShedulesItem"
+        EntitySet="ShedulesItemSet" />
+      <AssociationSetEnd
+        Name="Personal"
+        EntitySet="PersonalSet" />
+    </AssociationSet>
   </EntityContainer>
   <Association
     Name="Workplace_Personal">
@@ -303,5 +318,42 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="ShedulesItem_PersonalSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="ShedulesItem_PersonalSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ShedulesItem_PersonalSet]/Members[ShedulesItem]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ShedulesItem_Personal" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ShedulesItem_PersonalSet]/Members[Personal]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
+  <Association
+    Name="ShedulesItem_Personal">
+    <AssociationEnd
+      Name="ShedulesItem"
+      Multiplicity="Many"
+      EntityType="ShedulesItem" />
+    <AssociationEnd
+      Name="Personal"
+      Multiplicity="One"
+      EntityType="Personal">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
 </ServiceApplication>

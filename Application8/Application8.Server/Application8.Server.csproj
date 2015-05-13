@@ -207,6 +207,8 @@
     <LightSwitchModel Include="DataSources\ApplicationData\ProfessionListSet.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\PersonalSet.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\WorkplaceSet.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\ShedulesItemSet.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\PatientsItemSet.lsml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -239,7 +241,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63500/</IISUrl>
+          <IISUrl>http://localhost:49967/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

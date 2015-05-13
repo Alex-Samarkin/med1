@@ -46,4 +46,16 @@
         Target="ServiceInterface:Workplace_Polyclinics1" />
     </Association.Attributes>
   </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:ShedulesItem_Personal" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:ShedulesItem_Polyclinics" />
+    </Association.Attributes>
+  </Association>
 </Application>

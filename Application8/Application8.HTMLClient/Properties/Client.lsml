@@ -55,5 +55,11 @@
     <ApplicationNavigationMethodLink
       Name="link4"
       Method="!module/Methods[showBrowseWorkplaceSet]" />
+    <ApplicationNavigationMethodLink
+      Name="link6"
+      Method="!module/Methods[showBrowseShedulesItemSet]" />
+    <ApplicationNavigationMethodLink
+      Name="link7"
+      Method="!module/Methods[showBrowsePatientsItemSet]" />
   </Application.NavigationItems>
 </Application>
