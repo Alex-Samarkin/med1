@@ -5,12 +5,12 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="BrowseWorkplaceSet">
+    Name="BrowseProfessionListSet">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Список мест работы" />
+        Value="Список специальностей" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -22,29 +22,29 @@
           Kind="Group"
           View="Microsoft.LightSwitch.MobileWeb:TabPages">
           <ContentItem
-            Name="WorkplaceList"
+            Name="ProfessionListList"
             Kind="Group">
             <ContentItem
-              Name="WorkplaceSet"
+              Name="ProfessionListSet"
               Kind="Collection"
-              DataType="CollectionView$Workplace"
+              DataType="CollectionView$ProfessionList"
               View="Microsoft.LightSwitch.MobileWeb:TileList">
               <ContentItem.Attributes>
                 <DisplayName
-                  Value="WorkplaceSet" />
+                  Value="ProfessionListSet" />
               </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="BrowseWorkplaceSet/Properties[WorkplaceSet]" />
+                      Member="BrowseProfessionListSet/Properties[ProfessionListSet]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
                 Name="rows"
                 Kind="Details"
-                DataType="Workplace"
+                DataType="ProfessionList"
                 View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
                 <ContentItem.Attributes>
                   <DisplayName
@@ -56,14 +56,14 @@
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
                 <ContentItem
-                  Name="Position1"
+                  Name="Code"
                   Kind="Value"
                   DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[Position1]" />
+                          Member="ProfessionList/Properties[Code]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -81,27 +81,17 @@
                   </ContentItem.PropertySources>
                 </ContentItem>
                 <ContentItem
-                  Name="Personal"
-                  Kind="Details"
-                  DataType="Personal">
+                  Name="SubCode"
+                  Kind="Value"
+                  DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[Personal]" />
+                          Member="ProfessionList/Properties[SubCode]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
-                  <ContentItem
-                    Name="RowTemplate1"
-                    Kind="Details"
-                    DataType="Personal">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression />
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                   <ContentItem.PropertySources>
                     <ControlPropertySource
                       Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
@@ -116,27 +106,17 @@
                   </ContentItem.PropertySources>
                 </ContentItem>
                 <ContentItem
-                  Name="PrimaryWork"
-                  Kind="Details"
-                  DataType="Polyclinics">
+                  Name="Title"
+                  Kind="Value"
+                  DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[PrimaryWork]" />
+                          Member="ProfessionList/Properties[Title]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
-                  <ContentItem
-                    Name="RowTemplate2"
-                    Kind="Details"
-                    DataType="Polyclinics">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression />
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                   <ContentItem.PropertySources>
                     <ControlPropertySource
                       Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
@@ -169,16 +149,16 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <CallExpression
-                        Target="!module/Methods[showViewWorkplace]">
+                        Target="!module/Methods[showViewProfessionList]">
                         <CallExpression.Attributes>
                           <AssociatedCollection
-                            Collection="BrowseWorkplaceSet/Properties[WorkplaceSet]" />
+                            Collection="BrowseProfessionListSet/Properties[ProfessionListSet]" />
                         </CallExpression.Attributes>
                         <ArgumentExpression
-                          Parameter="Workplace">
+                          Parameter="ProfessionList">
                           <ChainExpression>
                             <MemberExpression
-                              Member="BrowseWorkplaceSet/Properties[WorkplaceSet]" />
+                              Member="BrowseProfessionListSet/Properties[ProfessionListSet]" />
                             <MemberExpression
                               Member="selectedItem" />
                           </ChainExpression>
@@ -191,7 +171,7 @@
             </ContentItem>
             <ContentItem.CommandItems>
               <ContentItem
-                Name="AddWorkplace"
+                Name="AddProfessionList"
                 Kind="Command">
                 <ContentItem.Attributes>
                   <DisplayName
@@ -203,12 +183,12 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <CallExpression
-                          Target="!module/Methods[showAddEditWorkplace]">
+                          Target="!module/Methods[showAddEditProfessionList]">
                           <CallExpression.Attributes>
                             <AssociatedCollection
-                              Collection="BrowseWorkplaceSet/Properties[WorkplaceSet]" />
+                              Collection="BrowseProfessionListSet/Properties[ProfessionListSet]" />
                             <CreateNewEntity
-                              TargetParameter="!module/Methods[showAddEditWorkplace]/Parameters[Workplace]" />
+                              TargetParameter="!module/Methods[showAddEditProfessionList]/Parameters[ProfessionList]" />
                           </CallExpression.Attributes>
                         </CallExpression>
                       </ChainExpression>
@@ -227,7 +207,7 @@
                 </ContentItem.PropertySources>
               </ContentItem>
               <ContentItem
-                Name="SearchWorkplaceSet"
+                Name="SearchProfessionListSet"
                 Kind="Command">
                 <ContentItem.Attributes>
                   <DisplayName
@@ -239,7 +219,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="BrowseWorkplaceSet/Properties[WorkplaceSet]" />
+                          Member="BrowseProfessionListSet/Properties[ProfessionListSet]" />
                         <CallExpression
                           Target="showSearch" />
                       </ChainExpression>
@@ -252,21 +232,6 @@
                         <ConstantExpression
                           Value="msls-search"
                           ResultType="Microsoft.LightSwitch:String" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-              </ContentItem>
-              <ContentItem
-                Name="ShowMainScreen"
-                Kind="Command">
-                <ContentItem.PropertySources>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <CallExpression
-                          Target="!module/Methods[showMainScreen]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ControlPropertySource>
@@ -319,20 +284,20 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
-        Name="WorkplaceSet"
+        Name="ProfessionListSet"
         PageSize="45"
-        PropertyType="CollectionView$Workplace">
+        PropertyType="CollectionView$ProfessionList">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
-            Name="WorkplaceSetQuery"
-            ReturnType="Workplace*">
+            Name="ProfessionListSetQuery"
+            ReturnType="ProfessionList*">
             <ScreenQueryDefinition.FilterExpression>
               <QueryFilterExpressionTree />
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <MemberExpression
-                  Member="ApplicationData/Members[WorkplaceSet]" />
+                  Member="ApplicationData/Members[ProfessionListSet]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>
@@ -340,7 +305,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="BrowseWorkplaceSet/Properties[WorkplaceSet]/Query" />
+              Target="BrowseProfessionListSet/Properties[ProfessionListSet]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -348,10 +313,10 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="showBrowseWorkplaceSet">
+      Name="showBrowseProfessionListSet">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="BrowseWorkplaceSet" />
+          TargetScreen="BrowseProfessionListSet" />
       </ApplicationMethod.Attributes>
     </ApplicationMethod>
   </Application.Methods>

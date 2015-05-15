@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="PatientsItem" />
+        Value="Пациент (подробнее)" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

@@ -8,6 +8,8 @@
     Name="Manager">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <DisplayName
+        Value="Руководители лечебных учреждений" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod

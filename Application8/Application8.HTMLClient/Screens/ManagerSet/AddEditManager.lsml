@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Manager" />
+        Value="Руководители (редактор)" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

@@ -72,6 +72,16 @@
             Value="Специализация" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="AdmissionRequestCollection"
+        Association="AdmissionRequest_ProfessionList"
+        FromEnd="ProfessionList"
+        ToEnd="AdmissionRequest" />
+      <NavigationProperty
+        Name="PersonalCollection"
+        Association="Personal_ProfessionList"
+        FromEnd="ProfessionList"
+        ToEnd="Personal" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -215,5 +225,103 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
+    <AssociationSet
+      Name="AdmissionRequest_ProfessionListSet"
+      Association="AdmissionRequest_ProfessionList">
+      <AssociationSetEnd
+        Name="AdmissionRequest"
+        EntitySet="AdmissionRequestSet" />
+      <AssociationSetEnd
+        Name="ProfessionList"
+        EntitySet="ProfessionListSet" />
+    </AssociationSet>
+    <AssociationSet
+      Name="Personal_ProfessionListSet"
+      Association="Personal_ProfessionList">
+      <AssociationSetEnd
+        Name="Personal"
+        EntitySet="PersonalSet" />
+      <AssociationSetEnd
+        Name="ProfessionList"
+        EntitySet="ProfessionListSet" />
+    </AssociationSet>
   </EntityContainer>
+  <Association
+    Name="AdmissionRequest_ProfessionList">
+    <AssociationEnd
+      Name="AdmissionRequest"
+      Multiplicity="Many"
+      EntityType="AdmissionRequest" />
+    <AssociationEnd
+      Name="ProfessionList"
+      EntityType="ProfessionList">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <AssociationSetMapping
+      AssociationSet="AdmissionRequest_ProfessionListSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="AdmissionRequest_ProfessionListSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AdmissionRequest_ProfessionListSet]/Members[AdmissionRequest]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="AdmissionRequest_ProfessionList" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AdmissionRequest_ProfessionListSet]/Members[ProfessionList]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Personal_ProfessionListSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Personal_ProfessionListSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Personal_ProfessionListSet]/Members[Personal]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Personal_ProfessionList" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Personal_ProfessionListSet]/Members[ProfessionList]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="Personal_ProfessionList">
+    <AssociationEnd
+      Name="Personal"
+      Multiplicity="Many"
+      EntityType="Personal" />
+    <AssociationEnd
+      Name="ProfessionList"
+      EntityType="ProfessionList">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
 </ServiceApplication>

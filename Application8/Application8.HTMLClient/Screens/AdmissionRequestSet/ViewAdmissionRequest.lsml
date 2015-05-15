@@ -5,12 +5,12 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="ViewWorkplace">
+    Name="ViewAdmissionRequest">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="есто работы (подробнее)" />
+        Value="AdmissionRequest" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -32,7 +32,7 @@
             <ContentItem
               Name="columns"
               Kind="Details"
-              DataType="Workplace"
+              DataType="AdmissionRequest"
               View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
               <ContentItem.Attributes>
                 <DisplayName
@@ -42,7 +42,7 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="ViewWorkplace/Properties[Workplace]" />
+                      Member="ViewAdmissionRequest/Properties[AdmissionRequest]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
@@ -50,21 +50,21 @@
                 Name="left"
                 Kind="Group">
                 <ContentItem
-                  Name="Personal"
+                  Name="PatientsItem"
                   Kind="Details"
-                  DataType="Personal">
+                  DataType="PatientsItem">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[Personal]" />
+                          Member="AdmissionRequest/Properties[PatientsItem]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
                     Name="RowTemplate"
                     Kind="Details"
-                    DataType="Personal">
+                    DataType="PatientsItem">
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression />
@@ -73,136 +73,102 @@
                   </ContentItem>
                 </ContentItem>
                 <ContentItem
-                  Name="PrimaryWork"
-                  Kind="Details"
-                  DataType="Polyclinics"
-                  View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+                  Name="BeginTime"
+                  Kind="Value"
+                  DataType=":DateTime">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[PrimaryWork]" />
+                          Member="AdmissionRequest/Properties[BeginTime]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
-                  <ContentItem
-                    Name="KindOf"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[KindOf]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Number"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[Number]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ShortName"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[ShortName]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem
-                  Name="SecondaryWork"
-                  Kind="Details"
-                  DataType="Polyclinics"
-                  View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Workplace/Properties[SecondaryWork]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem
-                    Name="KindOf1"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[KindOf]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Number1"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[Number]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ShortName1"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[ShortName]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                </ContentItem>
-                <ContentItem
-                  Name="Position1"
+                  Name="AboutTime"
                   Kind="Value"
                   DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[Position1]" />
+                          Member="AdmissionRequest/Properties[AboutTime]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Position2"
+                  Name="Duration"
                   Kind="Value"
-                  DataType=":String">
+                  DataType=":DateTimeOffset?">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[Position2]" />
+                          Member="AdmissionRequest/Properties[Duration]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="EndTime"
+                  Kind="Value"
+                  DataType=":DateTime?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[EndTime]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Polyclinics"
+                  Kind="Details"
+                  DataType="Polyclinics">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[Polyclinics]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate1"
+                    Kind="Details"
+                    DataType="Polyclinics">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="ProfessionList"
+                  Kind="Details"
+                  DataType="ProfessionList">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[ProfessionList]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate2"
+                    Kind="Details"
+                    DataType="ProfessionList">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                 </ContentItem>
                 <ContentItem.PropertySources>
                   <ControlPropertySource
@@ -231,6 +197,55 @@
                 Name="right"
                 Kind="Group">
                 <ContentItem
+                  Name="Personal"
+                  Kind="Details"
+                  DataType="Personal">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[Personal]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate3"
+                    Kind="Details"
+                    DataType="Personal">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="OnlyThisDoctor"
+                  Kind="Value"
+                  DataType=":Boolean">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[OnlyThisDoctor]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Description"
+                  Kind="Value"
+                  DataType=":String">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[Description]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
                   Name="CreatedBy"
                   Kind="Value"
                   DataType=":Person?">
@@ -238,7 +253,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[CreatedBy]" />
+                          Member="AdmissionRequest/Properties[CreatedBy]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -251,7 +266,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[Created]" />
+                          Member="AdmissionRequest/Properties[Created]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -264,7 +279,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[ModifiedBy]" />
+                          Member="AdmissionRequest/Properties[ModifiedBy]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -277,7 +292,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Workplace/Properties[Modified]" />
+                          Member="AdmissionRequest/Properties[Modified]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -308,7 +323,7 @@
             </ContentItem>
             <ContentItem.CommandItems>
               <ContentItem
-                Name="EditWorkplace"
+                Name="EditAdmissionRequest"
                 Kind="Command">
                 <ContentItem.Attributes>
                   <DisplayName
@@ -320,12 +335,12 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <CallExpression
-                          Target="!module/Methods[showAddEditWorkplace]">
+                          Target="!module/Methods[showAddEditAdmissionRequest]">
                           <ArgumentExpression
-                            Parameter="Workplace">
+                            Parameter="AdmissionRequest">
                             <ChainExpression>
                               <MemberExpression
-                                Member="ViewWorkplace/Properties[Workplace]" />
+                                Member="ViewAdmissionRequest/Properties[AdmissionRequest]" />
                             </ChainExpression>
                           </ArgumentExpression>
                         </CallExpression>
@@ -391,8 +406,8 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenProperty
-        Name="Workplace"
-        PropertyType="Workplace">
+        Name="AdmissionRequest"
+        PropertyType="AdmissionRequest">
         <ScreenProperty.Attributes>
           <IsParameter />
         </ScreenProperty.Attributes>
@@ -401,14 +416,14 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="showViewWorkplace">
+      Name="showViewAdmissionRequest">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="ViewWorkplace" />
+          TargetScreen="ViewAdmissionRequest" />
       </ApplicationMethod.Attributes>
       <ApplicationMethodParameter
-        Name="Workplace"
-        ParameterType="Workplace" />
+        Name="AdmissionRequest"
+        ParameterType="AdmissionRequest" />
     </ApplicationMethod>
   </Application.Methods>
 </Application>

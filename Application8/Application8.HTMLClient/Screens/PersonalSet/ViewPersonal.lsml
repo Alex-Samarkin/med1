@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Personal" />
+        Value="Сведения о специалисте (подробнее)" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -63,6 +63,19 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
+                  Name="LastName"
+                  Kind="Value"
+                  DataType=":String">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Personal/Properties[LastName]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
                   Name="SecondName"
                   Kind="Value"
                   DataType=":String">
@@ -76,17 +89,27 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="LastName"
-                  Kind="Value"
-                  DataType=":String">
+                  Name="ProfessionList"
+                  Kind="Details"
+                  DataType="ProfessionList">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Personal/Properties[LastName]" />
+                          Member="Personal/Properties[ProfessionList]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
+                  <ContentItem
+                    Name="ProfessionList1"
+                    Kind="Details"
+                    DataType="ProfessionList">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                 </ContentItem>
                 <ContentItem
                   Name="Phone"

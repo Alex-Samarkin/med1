@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="News" />
+        Value="Новость (подробнее)" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

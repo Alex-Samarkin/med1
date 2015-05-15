@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="PersonalSet" />
+        Value="Список врачей" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -150,6 +150,29 @@
                         </ScreenExpressionTree>
                       </ControlPropertySource>
                     </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem
+                    Name="ProfessionList"
+                    Kind="Details"
+                    DataType="ProfessionList">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="Personal/Properties[ProfessionList]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="ProfessionList1"
+                      Kind="Details"
+                      DataType="ProfessionList">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression />
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
                   </ContentItem>
                   <ContentItem.PropertySources>
                     <ControlPropertySource

@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Polyclinics" />
+        Value="Лечебное учреждение (редактировать)" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="ShedulesItem" />
+        Value="Время приема" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

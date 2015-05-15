@@ -66,6 +66,9 @@
     <Content Include="Content\Images\user-splash-screen.png" />
     <Content Include="Content\Web.config" />
     <Content Include="packages.config" />
+    <Content Include="Screens\AdmissionRequestSet\ViewAdmissionRequest.lsml.js">
+      <DependentUpon>ViewAdmissionRequest.lsml</DependentUpon>
+    </Content>
     <Content Include="Screens\ManagerSet\ViewManager.lsml.js">
       <DependentUpon>ViewManager.lsml</DependentUpon>
     </Content>
@@ -80,6 +83,9 @@
     </Content>
     <Content Include="Screens\PolyclinicsSet\ViewPolyclinics.lsml.js">
       <DependentUpon>ViewPolyclinics.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\ProfessionListSet\ViewProfessionList.lsml.js">
+      <DependentUpon>ViewProfessionList.lsml</DependentUpon>
     </Content>
     <Content Include="Screens\ShedulesItemSet\ViewShedulesItem.lsml.js">
       <DependentUpon>ViewShedulesItem.lsml</DependentUpon>
@@ -108,17 +114,22 @@
     </ServiceMetadataReference>
   </ItemGroup>
   <ItemGroup>
+    <LightSwitchModel Include="Properties\ApplicationData\AdmissionRequestSet.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\ManagerSet.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\NewsSet.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\PatientsItemSet.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\PersonalSet.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\PolyclinicsSet.lsml" />
+    <LightSwitchModel Include="Properties\ApplicationData\ProfessionListSet.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\ShedulesItemSet.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\WorkplaceSet.lsml" />
     <LightSwitchModel Include="Properties\Client.lsml">
       <ProjectCritical>true</ProjectCritical>
     </LightSwitchModel>
     <LightSwitchModel Include="Properties\Proxies.lsml" />
+    <LightSwitchModel Include="Screens\AdmissionRequestSet\AddEditAdmissionRequest.lsml" />
+    <LightSwitchModel Include="Screens\AdmissionRequestSet\BrowseAdmissionRequestSet.lsml" />
+    <LightSwitchModel Include="Screens\AdmissionRequestSet\ViewAdmissionRequest.lsml" />
     <LightSwitchModel Include="Screens\MainScreen.lsml" />
     <LightSwitchModel Include="Screens\ManagerSet\AddEditManager.lsml" />
     <LightSwitchModel Include="Screens\ManagerSet\BrowseManagerSet.lsml" />
@@ -135,6 +146,9 @@
     <LightSwitchModel Include="Screens\PolyclinicsSet\AddEditPolyclinics.lsml" />
     <LightSwitchModel Include="Screens\PolyclinicsSet\BrowsePolyclinicsSet.lsml" />
     <LightSwitchModel Include="Screens\PolyclinicsSet\ViewPolyclinics.lsml" />
+    <LightSwitchModel Include="Screens\ProfessionListSet\AddEditProfessionList.lsml" />
+    <LightSwitchModel Include="Screens\ProfessionListSet\BrowseProfessionListSet.lsml" />
+    <LightSwitchModel Include="Screens\ProfessionListSet\ViewProfessionList.lsml" />
     <LightSwitchModel Include="Screens\ShedulesItemSet\AddEditShedulesItem.lsml" />
     <LightSwitchModel Include="Screens\ShedulesItemSet\BrowseShedulesItemSet.lsml" />
     <LightSwitchModel Include="Screens\ShedulesItemSet\ViewShedulesItem.lsml" />

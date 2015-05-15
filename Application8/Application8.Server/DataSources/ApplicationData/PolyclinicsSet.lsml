@@ -8,6 +8,8 @@
     Name="Polyclinics">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <DisplayName
+        Value="Список лечебных учреждений" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod
@@ -183,6 +185,11 @@
         Association="ShedulesItem_Polyclinics"
         FromEnd="Polyclinics"
         ToEnd="ShedulesItem" />
+      <NavigationProperty
+        Name="AdmissionRequestCollection"
+        Association="AdmissionRequest_Polyclinics"
+        FromEnd="Polyclinics"
+        ToEnd="AdmissionRequest" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -356,6 +363,16 @@
         Name="Polyclinics"
         EntitySet="PolyclinicsSet" />
     </AssociationSet>
+    <AssociationSet
+      Name="AdmissionRequest_PolyclinicsSet"
+      Association="AdmissionRequest_Polyclinics">
+      <AssociationSetEnd
+        Name="AdmissionRequest"
+        EntitySet="AdmissionRequestSet" />
+      <AssociationSetEnd
+        Name="Polyclinics"
+        EntitySet="PolyclinicsSet" />
+    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -438,6 +455,27 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="AdmissionRequest_PolyclinicsSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="AdmissionRequest_PolyclinicsSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AdmissionRequest_PolyclinicsSet]/Members[AdmissionRequest]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="AdmissionRequest_Polyclinics" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AdmissionRequest_PolyclinicsSet]/Members[Polyclinics]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="Workplace_Polyclinics">
@@ -480,6 +518,21 @@
     <AssociationEnd
       Name="Polyclinics"
       Multiplicity="One"
+      EntityType="Polyclinics">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="AdmissionRequest_Polyclinics">
+    <AssociationEnd
+      Name="AdmissionRequest"
+      Multiplicity="Many"
+      EntityType="AdmissionRequest" />
+    <AssociationEnd
+      Name="Polyclinics"
       EntityType="Polyclinics">
       <AssociationEnd.Attributes>
         <DeleteRule

@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Workplace" />
+        Value="Добавить место работы врача" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

@@ -5,12 +5,12 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="AddEditNews">
+    Name="AddEditAdmissionRequest">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Новости (редактор)" />
+        Value="AdmissionRequest" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -32,7 +32,7 @@
             <ContentItem
               Name="columns"
               Kind="Details"
-              DataType="News"
+              DataType="AdmissionRequest"
               View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
               <ContentItem.Attributes>
                 <DisplayName
@@ -42,7 +42,7 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="AddEditNews/Properties[News]" />
+                      Member="AddEditAdmissionRequest/Properties[AdmissionRequest]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
@@ -50,40 +50,76 @@
                 Name="left"
                 Kind="Group">
                 <ContentItem
-                  Name="DateOf"
-                  Kind="Value"
-                  DataType=":Date">
+                  Name="PatientsItem"
+                  Kind="Details"
+                  DataType="PatientsItem">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="News/Properties[DateOf]" />
+                          Member="AdmissionRequest/Properties[PatientsItem]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate"
+                    Kind="Details"
+                    DataType="PatientsItem">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="BeginTime"
+                  Kind="Value"
+                  DataType=":DateTime">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[BeginTime]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Header"
+                  Name="AboutTime"
                   Kind="Value"
                   DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="News/Properties[Header]" />
+                          Member="AdmissionRequest/Properties[AboutTime]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Article"
+                  Name="Duration"
                   Kind="Value"
-                  DataType=":String">
+                  DataType=":DateTimeOffset?">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="News/Properties[Article]" />
+                          Member="AdmissionRequest/Properties[Duration]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="EndTime"
+                  Kind="Value"
+                  DataType=":DateTime?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[EndTime]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -115,27 +151,96 @@
                 Name="right"
                 Kind="Group">
                 <ContentItem
-                  Name="Author"
+                  Name="Polyclinics"
+                  Kind="Details"
+                  DataType="Polyclinics">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[Polyclinics]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate1"
+                    Kind="Details"
+                    DataType="Polyclinics">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="ProfessionList"
+                  Kind="Details"
+                  DataType="ProfessionList">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[ProfessionList]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate2"
+                    Kind="Details"
+                    DataType="ProfessionList">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="Personal"
+                  Kind="Details"
+                  DataType="Personal">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[Personal]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate3"
+                    Kind="Details"
+                    DataType="Personal">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="OnlyThisDoctor"
+                  Kind="Value"
+                  DataType=":Boolean">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRequest/Properties[OnlyThisDoctor]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Description"
                   Kind="Value"
                   DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="News/Properties[Author]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Web"
-                  Kind="Value"
-                  DataType="Microsoft.LightSwitch.Extensions:WebAddress">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="News/Properties[Web]" />
+                          Member="AdmissionRequest/Properties[Description]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -220,8 +325,8 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenProperty
-        Name="News"
-        PropertyType="News">
+        Name="AdmissionRequest"
+        PropertyType="AdmissionRequest">
         <ScreenProperty.Attributes>
           <IsParameter />
         </ScreenProperty.Attributes>
@@ -230,14 +335,14 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="showAddEditNews">
+      Name="showAddEditAdmissionRequest">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="AddEditNews" />
+          TargetScreen="AddEditAdmissionRequest" />
       </ApplicationMethod.Attributes>
       <ApplicationMethodParameter
-        Name="News"
-        ParameterType="News" />
+        Name="AdmissionRequest"
+        ParameterType="AdmissionRequest" />
     </ApplicationMethod>
   </Application.Methods>
 </Application>

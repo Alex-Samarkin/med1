@@ -5,12 +5,12 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="AddEditNews">
+    Name="AddEditProfessionList">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Новости (редактор)" />
+        Value="ProfessionList" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -32,7 +32,7 @@
             <ContentItem
               Name="columns"
               Kind="Details"
-              DataType="News"
+              DataType="ProfessionList"
               View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
               <ContentItem.Attributes>
                 <DisplayName
@@ -42,7 +42,7 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="AddEditNews/Properties[News]" />
+                      Member="AddEditProfessionList/Properties[ProfessionList]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
@@ -50,40 +50,27 @@
                 Name="left"
                 Kind="Group">
                 <ContentItem
-                  Name="DateOf"
-                  Kind="Value"
-                  DataType=":Date">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="News/Properties[DateOf]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Header"
+                  Name="Code"
                   Kind="Value"
                   DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="News/Properties[Header]" />
+                          Member="ProfessionList/Properties[Code]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Article"
+                  Name="SubCode"
                   Kind="Value"
                   DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="News/Properties[Article]" />
+                          Member="ProfessionList/Properties[SubCode]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -115,27 +102,27 @@
                 Name="right"
                 Kind="Group">
                 <ContentItem
-                  Name="Author"
+                  Name="Title"
                   Kind="Value"
                   DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="News/Properties[Author]" />
+                          Member="ProfessionList/Properties[Title]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Web"
+                  Name="SubTitle"
                   Kind="Value"
-                  DataType="Microsoft.LightSwitch.Extensions:WebAddress">
+                  DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="News/Properties[Web]" />
+                          Member="ProfessionList/Properties[SubTitle]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -220,8 +207,8 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenProperty
-        Name="News"
-        PropertyType="News">
+        Name="ProfessionList"
+        PropertyType="ProfessionList">
         <ScreenProperty.Attributes>
           <IsParameter />
         </ScreenProperty.Attributes>
@@ -230,14 +217,14 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="showAddEditNews">
+      Name="showAddEditProfessionList">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="AddEditNews" />
+          TargetScreen="AddEditProfessionList" />
       </ApplicationMethod.Attributes>
       <ApplicationMethodParameter
-        Name="News"
-        ParameterType="News" />
+        Name="ProfessionList"
+        ParameterType="ProfessionList" />
     </ApplicationMethod>
   </Application.Methods>
 </Application>

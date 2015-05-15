@@ -8,6 +8,8 @@
     Name="Workplace">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <DisplayName
+        Value="Места работы" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod
