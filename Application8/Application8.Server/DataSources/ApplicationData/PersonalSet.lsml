@@ -129,6 +129,11 @@
             Value="Профессия" />
         </NavigationProperty.Attributes>
       </NavigationProperty>
+      <NavigationProperty
+        Name="AdmissionRegisteredCollection"
+        Association="AdmissionRegistered_Personal"
+        FromEnd="Personal"
+        ToEnd="AdmissionRegistered" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -302,6 +307,16 @@
         Name="Personal"
         EntitySet="PersonalSet" />
     </AssociationSet>
+    <AssociationSet
+      Name="AdmissionRegistered_PersonalSet"
+      Association="AdmissionRegistered_Personal">
+      <AssociationSetEnd
+        Name="AdmissionRegistered"
+        EntitySet="AdmissionRegisteredSet" />
+      <AssociationSetEnd
+        Name="Personal"
+        EntitySet="PersonalSet" />
+    </AssociationSet>
   </EntityContainer>
   <Association
     Name="Workplace_Personal">
@@ -396,6 +411,27 @@
           Type="int" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="AdmissionRegistered_PersonalSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="AdmissionRegistered_PersonalSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AdmissionRegistered_PersonalSet]/Members[AdmissionRegistered]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="AdmissionRegistered_Personal" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AdmissionRegistered_PersonalSet]/Members[Personal]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="ShedulesItem_Personal">
@@ -419,6 +455,21 @@
       Name="AdmissionRequest"
       Multiplicity="Many"
       EntityType="AdmissionRequest" />
+    <AssociationEnd
+      Name="Personal"
+      EntityType="Personal">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="AdmissionRegistered_Personal">
+    <AssociationEnd
+      Name="AdmissionRegistered"
+      Multiplicity="Many"
+      EntityType="AdmissionRegistered" />
     <AssociationEnd
       Name="Personal"
       EntityType="Personal">

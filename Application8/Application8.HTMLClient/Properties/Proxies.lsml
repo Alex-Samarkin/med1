@@ -82,4 +82,22 @@
         Target="ServiceInterface:Personal_ProfessionList" />
     </Association.Attributes>
   </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:AdmissionRegistered_AdmissionRequest" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:AdmissionRegistered_Polyclinics" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:AdmissionRegistered_Personal" />
+    </Association.Attributes>
+  </Association>
 </Application>

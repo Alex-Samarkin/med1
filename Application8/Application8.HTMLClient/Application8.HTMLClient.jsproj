@@ -66,6 +66,9 @@
     <Content Include="Content\Images\user-splash-screen.png" />
     <Content Include="Content\Web.config" />
     <Content Include="packages.config" />
+    <Content Include="Screens\AdmissionRegisteredSet\ViewAdmissionRegistered.lsml.js">
+      <DependentUpon>ViewAdmissionRegistered.lsml</DependentUpon>
+    </Content>
     <Content Include="Screens\AdmissionRequestSet\ViewAdmissionRequest.lsml.js">
       <DependentUpon>ViewAdmissionRequest.lsml</DependentUpon>
     </Content>
@@ -114,6 +117,7 @@
     </ServiceMetadataReference>
   </ItemGroup>
   <ItemGroup>
+    <LightSwitchModel Include="Properties\ApplicationData\AdmissionRegisteredSet.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\AdmissionRequestSet.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\ManagerSet.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\NewsSet.lsml" />
@@ -127,9 +131,13 @@
       <ProjectCritical>true</ProjectCritical>
     </LightSwitchModel>
     <LightSwitchModel Include="Properties\Proxies.lsml" />
+    <LightSwitchModel Include="Screens\AdmissionRegisteredSet\AddEditAdmissionRegistered.lsml" />
+    <LightSwitchModel Include="Screens\AdmissionRegisteredSet\BrowseAdmissionRegisteredSet.lsml" />
+    <LightSwitchModel Include="Screens\AdmissionRegisteredSet\ViewAdmissionRegistered.lsml" />
     <LightSwitchModel Include="Screens\AdmissionRequestSet\AddEditAdmissionRequest.lsml" />
     <LightSwitchModel Include="Screens\AdmissionRequestSet\BrowseAdmissionRequestSet.lsml" />
     <LightSwitchModel Include="Screens\AdmissionRequestSet\ViewAdmissionRequest.lsml" />
+    <LightSwitchModel Include="Screens\BrowseQuery1.lsml" />
     <LightSwitchModel Include="Screens\MainScreen.lsml" />
     <LightSwitchModel Include="Screens\ManagerSet\AddEditManager.lsml" />
     <LightSwitchModel Include="Screens\ManagerSet\BrowseManagerSet.lsml" />

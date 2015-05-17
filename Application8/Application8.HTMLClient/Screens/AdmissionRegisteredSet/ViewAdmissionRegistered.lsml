@@ -5,12 +5,12 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="ViewShedulesItem">
+    Name="ViewAdmissionRegistered">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Прием больных (подробнее)" />
+        Value="Регистрация на прием" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -32,7 +32,7 @@
             <ContentItem
               Name="columns"
               Kind="Details"
-              DataType="ShedulesItem"
+              DataType="AdmissionRegistered"
               View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
               <ContentItem.Attributes>
                 <DisplayName
@@ -42,7 +42,7 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="ViewShedulesItem/Properties[ShedulesItem]" />
+                      Member="ViewAdmissionRegistered/Properties[AdmissionRegistered]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
@@ -50,277 +50,96 @@
                 Name="left"
                 Kind="Group">
                 <ContentItem
-                  Name="Personal"
+                  Name="AdmissionRequest"
                   Kind="Details"
-                  DataType="Personal"
-                  View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
+                  DataType="AdmissionRequest">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="ShedulesItem/Properties[Personal]" />
+                          Member="AdmissionRegistered/Properties[AdmissionRequest]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
-                    Name="FirstName"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Personal/Properties[FirstName]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="SecondName"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Personal/Properties[SecondName]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="LastName"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Personal/Properties[LastName]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Phone"
-                    Kind="Value"
-                    DataType="Microsoft.LightSwitch.Extensions:PhoneNumber">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Personal/Properties[Phone]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ProfessionList"
+                    Name="RowTemplate"
                     Kind="Details"
-                    DataType="ProfessionList"
-                    View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+                    DataType="AdmissionRequest">
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Personal/Properties[ProfessionList]" />
-                        </ChainExpression>
+                        <ChainExpression />
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
-                    <ContentItem
-                      Name="Code"
-                      Kind="Value"
-                      DataType=":String">
-                      <ContentItem.DataSource>
-                        <ScreenExpressionTree>
-                          <ChainExpression>
-                            <MemberExpression
-                              Member="ProfessionList/Properties[Code]" />
-                          </ChainExpression>
-                        </ScreenExpressionTree>
-                      </ContentItem.DataSource>
-                    </ContentItem>
-                    <ContentItem
-                      Name="SubCode"
-                      Kind="Value"
-                      DataType=":String">
-                      <ContentItem.DataSource>
-                        <ScreenExpressionTree>
-                          <ChainExpression>
-                            <MemberExpression
-                              Member="ProfessionList/Properties[SubCode]" />
-                          </ChainExpression>
-                        </ScreenExpressionTree>
-                      </ContentItem.DataSource>
-                    </ContentItem>
-                    <ContentItem
-                      Name="Title"
-                      Kind="Value"
-                      DataType=":String">
-                      <ContentItem.DataSource>
-                        <ScreenExpressionTree>
-                          <ChainExpression>
-                            <MemberExpression
-                              Member="ProfessionList/Properties[Title]" />
-                          </ChainExpression>
-                        </ScreenExpressionTree>
-                      </ContentItem.DataSource>
-                    </ContentItem>
-                    <ContentItem
-                      Name="SubTitle"
-                      Kind="Value"
-                      DataType=":String">
-                      <ContentItem.DataSource>
-                        <ScreenExpressionTree>
-                          <ChainExpression>
-                            <MemberExpression
-                              Member="ProfessionList/Properties[SubTitle]" />
-                          </ChainExpression>
-                        </ScreenExpressionTree>
-                      </ContentItem.DataSource>
-                    </ContentItem>
                   </ContentItem>
-                </ContentItem>
-                <ContentItem
-                  Name="StartTime"
-                  Kind="Value"
-                  DataType=":DateTime">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="ShedulesItem/Properties[StartTime]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="EndTime"
-                  Kind="Value"
-                  DataType=":DateTime">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="ShedulesItem/Properties[EndTime]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
                   Name="Polyclinics"
                   Kind="Details"
-                  DataType="Polyclinics"
-                  View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
+                  DataType="Polyclinics">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="ShedulesItem/Properties[Polyclinics]" />
+                          Member="AdmissionRegistered/Properties[Polyclinics]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
-                    Name="KindOf"
-                    Kind="Value"
-                    DataType=":String">
+                    Name="RowTemplate1"
+                    Kind="Details"
+                    DataType="Polyclinics">
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[KindOf]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Number"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[Number]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ShortName"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[ShortName]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="City"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[City]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Street"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[Street]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="House"
-                    Kind="Value"
-                    DataType=":String">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[House]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Phone1"
-                    Kind="Value"
-                    DataType="Microsoft.LightSwitch.Extensions:PhoneNumber">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Polyclinics/Properties[Phone]" />
-                        </ChainExpression>
+                        <ChainExpression />
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
                 </ContentItem>
                 <ContentItem
-                  Name="Cabinet"
+                  Name="Personal"
+                  Kind="Details"
+                  DataType="Personal">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRegistered/Properties[Personal]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate2"
+                    Kind="Details"
+                    DataType="Personal">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="Office"
                   Kind="Value"
                   DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="ShedulesItem/Properties[Cabinet]" />
+                          Member="AdmissionRegistered/Properties[Office]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="DateTimeOfAdmission"
+                  Kind="Value"
+                  DataType=":DateTime">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRegistered/Properties[DateTimeOfAdmission]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -352,6 +171,19 @@
                 Name="right"
                 Kind="Group">
                 <ContentItem
+                  Name="EndOfAdmission"
+                  Kind="Value"
+                  DataType=":DateTime?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="AdmissionRegistered/Properties[EndOfAdmission]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
                   Name="CreatedBy"
                   Kind="Value"
                   DataType=":Person?">
@@ -359,7 +191,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="ShedulesItem/Properties[CreatedBy]" />
+                          Member="AdmissionRegistered/Properties[CreatedBy]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -372,7 +204,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="ShedulesItem/Properties[Created]" />
+                          Member="AdmissionRegistered/Properties[Created]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -385,7 +217,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="ShedulesItem/Properties[ModifiedBy]" />
+                          Member="AdmissionRegistered/Properties[ModifiedBy]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -398,7 +230,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="ShedulesItem/Properties[Modified]" />
+                          Member="AdmissionRegistered/Properties[Modified]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -429,7 +261,7 @@
             </ContentItem>
             <ContentItem.CommandItems>
               <ContentItem
-                Name="EditShedulesItem"
+                Name="EditAdmissionRegistered"
                 Kind="Command">
                 <ContentItem.Attributes>
                   <DisplayName
@@ -441,12 +273,12 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <CallExpression
-                          Target="!module/Methods[showAddEditShedulesItem]">
+                          Target="!module/Methods[showAddEditAdmissionRegistered]">
                           <ArgumentExpression
-                            Parameter="ShedulesItem">
+                            Parameter="AdmissionRegistered">
                             <ChainExpression>
                               <MemberExpression
-                                Member="ViewShedulesItem/Properties[ShedulesItem]" />
+                                Member="ViewAdmissionRegistered/Properties[AdmissionRegistered]" />
                             </ChainExpression>
                           </ArgumentExpression>
                         </CallExpression>
@@ -512,8 +344,8 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenProperty
-        Name="ShedulesItem"
-        PropertyType="ShedulesItem">
+        Name="AdmissionRegistered"
+        PropertyType="AdmissionRegistered">
         <ScreenProperty.Attributes>
           <IsParameter />
         </ScreenProperty.Attributes>
@@ -522,14 +354,14 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="showViewShedulesItem">
+      Name="showViewAdmissionRegistered">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="ViewShedulesItem" />
+          TargetScreen="ViewAdmissionRegistered" />
       </ApplicationMethod.Attributes>
       <ApplicationMethodParameter
-        Name="ShedulesItem"
-        ParameterType="ShedulesItem" />
+        Name="AdmissionRegistered"
+        ParameterType="AdmissionRegistered" />
     </ApplicationMethod>
   </Application.Methods>
 </Application>

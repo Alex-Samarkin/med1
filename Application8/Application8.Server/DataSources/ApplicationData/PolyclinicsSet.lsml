@@ -190,6 +190,11 @@
         Association="AdmissionRequest_Polyclinics"
         FromEnd="Polyclinics"
         ToEnd="AdmissionRequest" />
+      <NavigationProperty
+        Name="AdmissionRegisteredCollection"
+        Association="AdmissionRegistered_Polyclinics"
+        FromEnd="Polyclinics"
+        ToEnd="AdmissionRegistered" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -373,6 +378,16 @@
         Name="Polyclinics"
         EntitySet="PolyclinicsSet" />
     </AssociationSet>
+    <AssociationSet
+      Name="AdmissionRegistered_PolyclinicsSet"
+      Association="AdmissionRegistered_Polyclinics">
+      <AssociationSetEnd
+        Name="AdmissionRegistered"
+        EntitySet="AdmissionRegisteredSet" />
+      <AssociationSetEnd
+        Name="Polyclinics"
+        EntitySet="PolyclinicsSet" />
+    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -476,6 +491,27 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="AdmissionRegistered_PolyclinicsSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="AdmissionRegistered_PolyclinicsSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AdmissionRegistered_PolyclinicsSet]/Members[AdmissionRegistered]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="AdmissionRegistered_Polyclinics" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AdmissionRegistered_PolyclinicsSet]/Members[Polyclinics]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="Workplace_Polyclinics">
@@ -533,6 +569,22 @@
       EntityType="AdmissionRequest" />
     <AssociationEnd
       Name="Polyclinics"
+      EntityType="Polyclinics">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="AdmissionRegistered_Polyclinics">
+    <AssociationEnd
+      Name="AdmissionRegistered"
+      Multiplicity="Many"
+      EntityType="AdmissionRegistered" />
+    <AssociationEnd
+      Name="Polyclinics"
+      Multiplicity="One"
       EntityType="Polyclinics">
       <AssociationEnd.Attributes>
         <DeleteRule

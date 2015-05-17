@@ -67,5 +67,11 @@
     <ApplicationNavigationMethodLink
       Name="link9"
       Method="!module/Methods[showBrowseProfessionListSet]" />
+    <ApplicationNavigationMethodLink
+      Name="link10"
+      Method="!module/Methods[showBrowseAdmissionRegisteredSet]" />
+    <ApplicationNavigationMethodLink
+      Name="link11"
+      Method="!module/Methods[showBrowseQuery1]" />
   </Application.NavigationItems>
 </Application>
